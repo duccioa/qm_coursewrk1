@@ -1,0 +1,20 @@
+---
+title: "QuantitativeMethods_proj01"
+author: "Duccio Aiazzi"
+date: "28 October 2015"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+
+countries <- read.csv("countries.csv", sep = ",", stringsAsFactors = FALSE)
+names(countries) <- c("X", "Year", "CountryCode", "Country", "Population", "gdp", "FoodImports", "FuelImports")
+```
+This essay aims at analysing the dataset Countries.csv in the context of the course Quantitative Methods at UCL.
+The dataset contains information about **'r length(countries$X)'** countries.  
+
+```{r}
+head(countries)
+```
+
