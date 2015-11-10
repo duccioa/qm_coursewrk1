@@ -1,0 +1,535 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{qm\_coursewrk1\_DuccioAiazzi\_v3}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{The effect of Gross Domestic Product on food
+imports}\label{the-effect-of-gross-domestic-product-on-food-imports}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{c}{\PYZsh{}Load packages}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}
+        \PY{n}{matplotlib}\PY{o}{.}\PY{n}{style}\PY{o}{.}\PY{n}{use}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ggplot}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{k+kn}{import} \PY{n+nn}{patsy}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{api} \PY{k}{as} \PY{n+nn}{sm}
+        \PY{k+kn}{from} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{formula}\PY{n+nn}{.}\PY{n+nn}{api} \PY{k}{import} \PY{n}{ols}
+        \PY{k+kn}{import} \PY{n+nn}{csv}
+        \PY{k+kn}{import} \PY{n+nn}{os}
+        \PY{k+kn}{from} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{gridspec} \PY{k}{import} \PY{n}{GridSpec}
+        \PY{c}{\PYZsh{}Set defaults for graphs}
+        \PY{n}{pd}\PY{o}{.}\PY{n}{set\PYZus{}option}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{display.mpl\PYZus{}style}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{default}\PY{l+s}{\PYZsq{}}\PY{p}{)} \PY{c}{\PYZsh{} Make the graphs a bit prettier}
+        \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{16}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c}{\PYZsh{}Working directory}
+        \PY{n}{os}\PY{o}{.}\PY{n}{chdir}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{/Users/duccioa/CLOUD/C07\PYZus{}UCL\PYZus{}SmartCities/QuantitativeMethods/qm\PYZus{}coursewrk1}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \subsection{Introduction}\label{introduction}
+
+    In this project, I investigate the determinants of food imports in
+countries based on the dataset Data\_for\_Coursework\_1\_Countries.csv,
+provided within the context of the course Quantitative Methods at UCL. A
+first glance at the data reveals an interesting sublinear power law
+relation between GDP and food imports. Countries with bigger economies
+import more food then countries with a smaller output but the increase
+is less important the more the GDP grows. At a second glance, the same
+relation holds if we take into account population but with an effect of
+economy of scale due to the population: richer countries (higher GDP per
+capita) import more than poorer ones but spend a smaller fraction of
+their income in food, bigger countries import less food per capita than
+smaller ones.
+
+    \subsection{Methods}\label{methods}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{countries} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{countries.csv}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{,}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{encoding} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{latin1}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{countries}\PY{o}{.}\PY{n}{columns} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{X}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Year}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{CountryCode}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{CountryName}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                             \PY{l+s}{\PYZsq{}}\PY{l+s}{Population}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{GDP}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{FuelImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+    In this project I aim to investigate the determinant of food import
+based on the available dataset, which contains data for 190 countries
+about Gross Domestic Product (GDP), population, food and fuel imports
+for the year 2005. First I look at the plot of the data and the
+correlation to see if there is any evident pattern. Than I use the least
+squares method to infere a linear model for the ln-ln relation: this
+suggest a power law for the relation between food imports and GDP. Than
+I investigate the question whether the population might be a confounding
+variable and run a least squares method regression with food import as
+the outcome and GDP and population as predictors and discuss the
+results.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{countries}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}6}]:}    X  Year CountryCode  CountryName  Population           GDP  FoodImports  \textbackslash{}
+        0  1  2005         ABW        Aruba      100031  1.160240e+12     97166150   
+        1  2  2005         AFG  Afghanistan    24860855  6.275076e+09    528341972   
+        2  3  2005         AGO       Angola    16544376  2.823370e+10   1075607744   
+        
+           FuelImports  
+        0     32335285  
+        1    461521897  
+        2     48218538  
+\end{Verbatim}
+        
+    \subsection{Analysis}\label{analysis}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}92}]:} \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{log}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{log}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{log}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP\PYZus{}pc}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{/}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}pc}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{/}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP\PYZus{}pc\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{log}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP\PYZus{}pc}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}pc\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{log}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}pc}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    Both plots present patterns of correlation with three big outliers: USA,
+India and China which have respectively very high GDP, population, GDP
+and population. GDP have a very strong correlation (0.92) with food
+import and the ln-ln plot strongly suggests a power law relation with
+values very concentrated on the regression line (the ln-ln plot with
+population shows higher variation than with GDP).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}93}]:} \PY{n}{coords} \PY{o}{=} \PY{n}{countries}\PY{p}{[}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CountryCode}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{CHN}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{coords} \PY{o}{=} \PY{n}{coords}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CountryCode}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{IND}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{coords} \PY{o}{=} \PY{n}{coords}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CountryCode}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{USA}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}94}]:} \PY{c}{\PYZsh{}POPULATION AND FOOD IMPORT : analysis and plot}
+         \PY{n}{gs} \PY{o}{=} \PY{n}{GridSpec}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{n}{bottom}\PY{o}{=}\PY{l+m+mf}{0.18}\PY{p}{,}\PY{n}{left}\PY{o}{=}\PY{l+m+mf}{0.18}\PY{p}{,}\PY{n}{right}\PY{o}{=}\PY{l+m+mf}{0.88}\PY{p}{)}
+         \PY{n}{fig1}\PY{p}{,} \PY{n}{ax1} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{p}{)}
+         \PY{n}{ax1} \PY{o}{=} \PY{n}{fig1}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{n}{gs}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{43}\PY{p}{]}\PY{p}{)}
+         \PY{n}{ax2} \PY{o}{=} \PY{n}{fig1}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{n}{gs}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{50}\PY{p}{:}\PY{l+m+mi}{99}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{ax1}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{ax1}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CountryCode}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{p}{,} 
+                     \PY{n}{xy} \PY{o}{=} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{p}{,} \PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{ax1}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CountryCode}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{34}\PY{p}{]}\PY{p}{,} 
+                     \PY{n}{xy} \PY{o}{=} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{34}\PY{p}{]}\PY{p}{,} \PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{34}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{ax1}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CountryCode}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{82}\PY{p}{]}\PY{p}{,} 
+                     \PY{n}{xy} \PY{o}{=} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{82}\PY{p}{]}\PY{p}{,} \PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{82}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{ax1}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Correlation: }\PY{l+s}{\PYZsq{}} \PY{o}{+} 
+                     \PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{round}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{corr}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{method}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{spearman}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,} 
+                     \PY{n}{xy} \PY{o}{=} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{1.3}\PY{p}{,} \PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.6}\PY{p}{)}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}Log plot}
+         \PY{c}{\PYZsh{}fig2, ax2 = plt.subplots()}
+         \PY{n}{ax2}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population and Food Imports: Scatter and Ln\PYZhy{}ln plot}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}Regression line}
+         \PY{n}{mod\PYZus{}pop} \PY{o}{=} \PY{n}{ols}\PY{p}{(}\PY{n}{formula}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}log \PYZti{} Population\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{countries}\PY{p}{)}
+         \PY{n}{res\PYZus{}pop} \PY{o}{=} \PY{n}{mod\PYZus{}pop}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{par\PYZus{}pop} \PY{o}{=} \PY{n}{res\PYZus{}pop}\PY{o}{.}\PY{n}{params}
+         \PY{n}{ax2}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{par\PYZus{}pop}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} 
+                 \PY{n}{par\PYZus{}pop}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Population\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{red}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         
+         \PY{n}{savefig}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{plot1.png}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{bbox\PYZus{}inches}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{tight}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{qm_coursewrk1_DuccioAiazzi_v3_files/qm_coursewrk1_DuccioAiazzi_v3_13_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}95}]:} \PY{c}{\PYZsh{}\PYZsh{}GDP AND FOOD IMPORT : analysis and plot}
+         \PY{c}{\PYZsh{}Plot}
+         \PY{n}{gs} \PY{o}{=} \PY{n}{GridSpec}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{n}{bottom}\PY{o}{=}\PY{l+m+mf}{0.18}\PY{p}{,}\PY{n}{left}\PY{o}{=}\PY{l+m+mf}{0.18}\PY{p}{,}\PY{n}{right}\PY{o}{=}\PY{l+m+mf}{0.88}\PY{p}{)}
+         \PY{n}{fig1}\PY{p}{,} \PY{n}{ax1} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{p}{)}
+         \PY{n}{ax3} \PY{o}{=} \PY{n}{fig1}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{n}{gs}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{43}\PY{p}{]}\PY{p}{)}
+         \PY{n}{ax4} \PY{o}{=} \PY{n}{fig1}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{n}{gs}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{50}\PY{p}{:}\PY{l+m+mi}{99}\PY{p}{]}\PY{p}{)}
+         
+         
+         \PY{n}{ax3}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{ax3}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CountryCode}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{p}{,} 
+                     \PY{n}{xy} \PY{o}{=} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{p}{,} \PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{ax3}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CountryCode}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{34}\PY{p}{]}\PY{p}{,} 
+                     \PY{n}{xy} \PY{o}{=} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{34}\PY{p}{]}\PY{p}{,} \PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{34}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{ax3}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CountryCode}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{82}\PY{p}{]}\PY{p}{,} 
+                     \PY{n}{xy} \PY{o}{=} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{82}\PY{p}{]}\PY{p}{,} \PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{82}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{ax3}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Correlation: }\PY{l+s}{\PYZsq{}} \PY{o}{+} 
+                     \PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{round}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{corr}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} 
+                                                     \PY{n}{method}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{spearman}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,} 
+                     \PY{n}{xy} \PY{o}{=} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.6}\PY{p}{,} \PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.6}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP and Food Imports}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{c}{\PYZsh{}Log plot}
+         \PY{n}{ax4}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP and Food Imports: Scatter and Ln\PYZhy{}ln plot}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{c}{\PYZsh{}Regression line}
+         \PY{n}{mod\PYZus{}gdp} \PY{o}{=} \PY{n}{ols}\PY{p}{(}\PY{n}{formula}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}log \PYZti{} GDP\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{countries}\PY{p}{)}
+         \PY{n}{res\PYZus{}gdp} \PY{o}{=} \PY{n}{mod\PYZus{}gdp}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{par\PYZus{}gdp} \PY{o}{=} \PY{n}{res\PYZus{}gdp}\PY{o}{.}\PY{n}{params}
+         \PY{n}{ax4}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{par\PYZus{}gdp}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} 
+                 \PY{n}{par\PYZus{}gdp}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{countries}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{red}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{ax4}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Intercept a =  }\PY{l+s}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{round}\PY{p}{(}\PY{n}{par\PYZus{}gdp}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,} 
+                     \PY{n}{xy} \PY{o}{=} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.9}\PY{p}{,} \PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.7}\PY{p}{)}\PY{p}{)}
+         \PY{n}{ax4}\PY{o}{.}\PY{n}{annotate}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Slope beta = }\PY{l+s}{\PYZsq{}}  \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{round}\PY{p}{(}\PY{n}{par\PYZus{}gdp}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,} 
+                     \PY{n}{xy} \PY{o}{=} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{GDP\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.9}\PY{p}{,} \PY{n}{coords}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{179}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.68}\PY{p}{)}\PY{p}{)}
+         
+         \PY{n}{savefig}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{plot2.png}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{bbox\PYZus{}inches}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{tight}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{qm_coursewrk1_DuccioAiazzi_v3_files/qm_coursewrk1_DuccioAiazzi_v3_14_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Based on the graphs above the relation between the outcome Food Imports
+(Y) and the predictor GDP (X) is as following:
+
+\begin{equation}
+Y = aX^{\beta}    
+\end{equation}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}86}]:} \PY{n}{df\PYZus{}gdp} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+         \PY{n}{df\PYZus{}gdp}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Coef}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{res\PYZus{}gdp}\PY{o}{.}\PY{n}{params}
+         \PY{n}{df\PYZus{}gdp}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{P\PYZhy{}values}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{res\PYZus{}gdp}\PY{o}{.}\PY{n}{pvalues}
+         \PY{n+nb}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{R\PYZhy{}squared: }\PY{l+s}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{round}\PY{p}{(}\PY{n}{res\PYZus{}gdp}\PY{o}{.}\PY{n}{rsquared}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+         \PY{n}{df\PYZus{}gdp}
+         
+         \PY{c}{\PYZsh{}print res\PYZus{}gdp.summary()}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+R-squared: 0.84
+    \end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}86}]:}                Coef      P-values
+         Intercept  3.859762  3.058295e-12
+         GDP\_log    0.691211  3.268875e-77
+\end{Verbatim}
+        
+    With a = 3.86 and \(\alpha\) = 0.69, the model explains almost 85\% of
+the variation in food import (R-squared = 0.84), which is a good fit.
+Being the slope less than 1, the relation is sublinear and the impact of
+GDP on food import declines with the increase of GDP. However, we would
+expect both GDP and food imports to be strongly increasing in the
+population. Therefore, it is worth checking if this strong correlation
+is not driven by their dependence on population. To do so I run the
+following regression:
+
+\[ln(y) = {\alpha_1} + {\alpha_2}ln(x) + {\alpha_3}ln(L)\]
+
+With \(y = \frac{Y}{L}\) (food import per capita) and
+\(x = \frac{X}{L}\) (GDP per capita).\\
+It is worth to note that this formulation encompasses the one above (for
+\({\alpha_2} = 1-{\alpha_3} = {\beta}\) it is identical, see appendix
+for details).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}87}]:} \PY{n}{mod} \PY{o}{=} \PY{n}{ols}\PY{p}{(}\PY{n}{formula}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{FoodImports\PYZus{}pc\PYZus{}log \PYZti{} GDP\PYZus{}pc\PYZus{}log + Population\PYZus{}log}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{countries}\PY{p}{)}
+         \PY{n}{res} \PY{o}{=} \PY{n}{mod}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+         \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Coef}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{res}\PY{o}{.}\PY{n}{params}
+         \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{P\PYZhy{}values}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{res}\PY{o}{.}\PY{n}{pvalues}
+         \PY{n+nb}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{R\PYZhy{}squared: }\PY{l+s}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{round}\PY{p}{(}\PY{n}{res}\PY{o}{.}\PY{n}{rsquared}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+         \PY{n}{df}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+R-squared: 0.81
+    \end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}87}]:}                     Coef      P-values
+         Intercept       3.860655  3.237017e-12
+         GDP\_pc\_log      0.674037  6.845421e-52
+         Population\_log -0.299762  5.349538e-25
+\end{Verbatim}
+        
+    This gives us the following equation:
+
+\[y=ax^{\alpha_2}L^{\alpha_3}\]
+
+With \(y = \frac{Y}{L}\) (food import per capita) and
+\(x = \frac{X}{L}\) (GDP per capita), a = 47.49, \(\alpha_2 = 0.67\) and
+\(\alpha_3 = 0.3\).\\
+The model has an R-squared = 0.807 and the coefficients are all
+statistically significant.
+
+    The equation above suggests that, holding population constant, the food
+import per capita increases in a sublinear fashion with the GDP per
+capita and the increase is less and less pronounced for more productive
+countries (higher GDP per capita). On the other hand, holding GDP per
+capita constant, countries with more population import less food per
+person. The first relation is probably explained by the fact that as
+people become richer, they consume more food but spend a smaller
+fraction of their income in buying it. The other relation could be
+explained as an economy of scale, where increase in population make food
+allocation more efficient and reduces the relative need of importing
+food.\\
+The model explains \$\sim\$80\% of the variation and other factors would
+be worth investigating. To name a few, I would think food trade balance,
+levels of productivity and employment in agriculture would be a good
+start to improve the comprehension of the dynamics behind food imports.
+
+    \subsection{Appendix}\label{appendix}
+
+    \subsubsection{Identity of the power
+law}\label{identity-of-the-power-law}
+
+    The power law suggested by the graph is
+
+\begin{equation}
+\left[
+Y = aX^{\beta}    
+\right]
+\end{equation}
+
+Dividing by the population L, we can write:
+
+\[\frac{Y}{L} = \frac{aX^{\beta}}{L} = \frac{aX^{\beta}}{L^{\beta}L^{1-\beta}} = a(\frac{X}{L})^{\beta}L^{1-{\beta}}\]
+
+If I write \(y = \frac{Y}{L}\) as the Food Imports per capita and
+\(x = \frac{X}{L}\) as the GDP per capita, I can say that the first
+equation is equivalent to saying:
+
+\begin{equation}
+\left[
+y = ax^{\beta}L^{1-\beta}
+\right]
+\end{equation}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
